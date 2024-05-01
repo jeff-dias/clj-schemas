@@ -17,7 +17,7 @@ Loose schemas are used when you're consuming a not reliable information. This sc
 ## Reading the code
 In our code, we have examples of external (loose) and internal (strict) models.
 
-### Loose person
+### Loose person [\[ref\]](https://github.com/jeff-dias/clj-schemas/blob/bfef75b23a0b73681b94b9f5e70c7eaea335f8ef/src/schemas/models/externals/person.clj)
 In this example we can see the allowed keys and, in the end, a key as `s/Keyword`. This key become the schema as loose.
 
 Also, we can see here the instruction `s/optional` that allows a key be ommited when this schema is used.
@@ -31,7 +31,7 @@ Also, we can see here the instruction `s/optional` that allows a key be ommited 
    s/Keyword                  s/Any})
 ```
 
-### Strict person
+### Strict person [\[ref\]](https://github.com/jeff-dias/clj-schemas/blob/bfef75b23a0b73681b94b9f5e70c7eaea335f8ef/src/schemas/models/internals/person.clj)
 In this example we can just see the allowed keys. By default, the schemas are strict in Plumatic.
 
 Here, we can see a new key if compared with the external model. This is totally normal if we consider the scenario of person creation, where we don't know the `ID` when we receive the request, but we can know it in our domain layer.
@@ -45,7 +45,7 @@ Here, we can see a new key if compared with the external model. This is totally 
    :address                   Address})
 ```
 
-### Adapters
+### Adapters [\[ref\]](https://github.com/jeff-dias/clj-schemas/blob/bfef75b23a0b73681b94b9f5e70c7eaea335f8ef/src/schemas/adapters/person.clj)
 Adapters or mappers, are pretty common in architecture divided by layers, and are used when we need to adapt the external data into an internal one.
 
 In our code we have adapters mainly because of we transform loose schemas into strict ones.
@@ -61,7 +61,7 @@ In the example below we can see even other Plumatic benefits, like `s/defn` whic
       (assoc :id (random-uuid))))
 ```
 
-### Unit tests
+### Unit tests [\[ref\]](https://github.com/jeff-dias/clj-schemas/blob/bfef75b23a0b73681b94b9f5e70c7eaea335f8ef/test/schemas/adapters/person_test.clj)
 It's a good practice create unit tests for your adapters. They'll assure that your adapters are receiving and generating the expected data.
 
 In our example we're using `schema-generators` to create mocks and use in our method assertions. Also, we're using `schema.test` that will validate if the methods parameters and the responses are valid according to the expected schemas.
