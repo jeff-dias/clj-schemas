@@ -1,7 +1,7 @@
 # schemas
 Project to contribute with Clojure beginners which aim to understand about the use of schemas.
 
-#### TL;DR
+#### TL;DR;
 `Schema is a rich language for describing data shapes`
 
 When we're onboarding on Clojure world and are coming from a strongly typed language. One of the things that is more painful is understand the data flow (where it comes from, where it goes). 
